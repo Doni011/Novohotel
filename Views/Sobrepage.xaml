@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel1.Views.Sobrepage"
+            NavigationPage.HasNavigationBar="False"
+            BackgroundColor="Black">
+
+    
+        <StackLayout Padding="22" Spacing="20">
+
+            <Label Text="Sobre"
+                   FontSize="40"
+                   FontFamily="RubikWetPaint"
+                   TextColor="Orange"
+                   HorizontalOptions="Center" 
+                   Margin="0,20,0,10" />
+
+            <Frame Padding="15" BackgroundColor="#4B0082" CornerRadius="10">
+                <StackLayout Padding="10" Spacing="10">
+
+                    <Label Text="Projeto criado com intuito de fazer o cálculo da soma das diárias de um hotel, com temática de Halloween."
+                           TextColor="White"
+                           FontSize="17" />
+
+                    <BoxView HeightRequest="1" Color="White" />
+
+                    <Label Text="Tecnologias utilizadas: .NET MAUI, C#, XAML"
+                           TextColor="White"
+                           FontSize="17" />
+
+                    <BoxView HeightRequest="1" Color="White" />
+
+                    <Label Text="Ano de desenvolvimento: 2024"
+                           TextColor="White"
+                           FontSize="17" />
+
+                    <BoxView HeightRequest="1" Color="White" />
+
+                    <Label Text="Desenvolvedor: Adonias Guilherme"
+                           TextColor="White"
+                           FontSize="17" />
+
+                    <BoxView HeightRequest="1" Color="White" />
+
+                <Label Text="Contato: Desenvolvedor.doni@gmail.com"
+                           TextColor="White"
+                           FontSize="17" />
+            </StackLayout>
+
+            
+        </Frame>
+            
+        <Button Text="Voltar" 
+        Clicked="Button_Clicked"
+        HorizontalOptions="Center"
+        HeightRequest="30"
+        WidthRequest="100"
+        BackgroundColor="Orange"/>
+        </StackLayout>
+    
+    
+</ContentPage>
