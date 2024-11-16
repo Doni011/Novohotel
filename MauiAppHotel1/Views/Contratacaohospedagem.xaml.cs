@@ -1,3 +1,4 @@
+using MauiAppHotel1.Models;
 using System.Data;
 
 namespace MauiAppHotel1.Views
@@ -14,7 +15,7 @@ namespace MauiAppHotel1.Views
             pck_quarto.ItemsSource = propriedadesApp.lista_quartos;
 
             dtpck_checkin.MinimumDate = DateTime.Now;
-            dtpck_checkin.MaximumDate = new DateTime (DateTime.Now.Year, DateTime.Now.Month + 1, DateTime.Now.Day);
+            dtpck_checkin.MaximumDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, DateTime.Now.Day);
 
             dtpck_checkout.MinimumDate = dtpck_checkin.Date.AddDays(1);
             dtpck_checkout.MaximumDate = dtpck_checkin.Date.AddMonths(6);
@@ -26,15 +27,31 @@ namespace MauiAppHotel1.Views
             await Navigation.PushAsync(new Sobrepage());
         }
 
-        private void Button_Clicked_1(object sender, EventArgs e)
+        private async void Button_Clicked_1(object sender, EventArgs e)
         {
             try
             {
-                Navigation.PushAsync(new Hospedagemcontratada());
+                Hospedagem h = new Hospedagem
+
+                {
+                    QuartoSelecionado = (Quarto)pck_quarto.SelectedItem,
+                    QntAdultos = Convert.ToInt32(stp_adultos.Value),
+                    QntCriancas = Convert.ToInt32(stp_criancas.Value),
+                    DataCheckin = dtpck_checkin.Date,
+                    DataCheckOut = dtpck_checkout.Date,
+                };
+
+                await Navigation.PushAsync(new Hospedagemcontratada()
+
+                {
+                    BindingContext = h
+                });
+
             }
             catch (Exception ex)
+
             {
-                DisplayAlert("Ops", ex.Message, "OK");
+                await DisplayAlert("Ops", ex.Message, "OK");
             }
         }
 

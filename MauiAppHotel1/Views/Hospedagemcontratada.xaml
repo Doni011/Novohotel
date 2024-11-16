@@ -6,8 +6,8 @@
              BackgroundColor="Black">
 
     <VerticalStackLayout VerticalOptions="CenterAndExpand">
-        
-        <Label Text="Suíte Super Luxo"
+
+        <Label Text="{Binding QuartoSelecionado.Descricao}"
                    TextColor="White"
                    FontFamily="RubikWetPaint" 
                    FontSize="40"
@@ -16,60 +16,70 @@
         <Frame Padding="10"
                Margin="10, 33, 10, 0"
                BackgroundColor="Red">
-            
+
             <VerticalStackLayout>
-                <Frame Margin="10"
-               BackgroundColor="White">
-            <HorizontalStackLayout>
-                <HorizontalStackLayout>
-                    <Label Text=" Adultos: "
-                           Margin="30,0,0,0"
+                <Frame Margin="10" BackgroundColor="White">
+
+
+                    <HorizontalStackLayout>
+
+                        <StackLayout  Orientation="Horizontal" >
+                            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                                <Label Text=" Adultos: "
                            FontFamily="RubikWetPaint"
                            TextColor="Red"/>
-                    <Label Text=" 2"
+                                <Label Text="{Binding QntAdultos}"
                            FontAttributes = "Bold"
                            TextColor="Black"/>
 
-                </HorizontalStackLayout>
+                            </HorizontalStackLayout>
 
-                <HorizontalStackLayout>
-                    <Label Text="  Crianças: "
-                           Margin="30,0,0,0"
+                            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                                <Label Text="  Crianças: "
+                           HorizontalOptions="CenterAndExpand"
                            FontFamily="RubikWetPaint"
                            TextColor="Red"/>
-                    <Label Text=" 2"
+                                <Label Text="{Binding QntCriancas}" 
                            FontAttributes = "Bold"
                            TextColor="Black" />
-                </HorizontalStackLayout>
-            </HorizontalStackLayout>
-        </Frame> 
 
-        <Frame Margin="10">
-                <Grid ColumnDefinitions="*, *, *"
+
+                            </HorizontalStackLayout>
+                        </StackLayout>
+                    </HorizontalStackLayout>
+
+
+                </Frame>
+
+                <Frame Margin="10">
+                    <Grid ColumnDefinitions="*, *, *"
                      RowDefinitions="Auto, Auto">
                         <Label Grid.Row="0" Grid.Column="0" Text="Check-in:" FontFamily="RubikWetPaint" Margin="11,0,0,3" />
                         <Label Grid.Row="0" Grid.Column="1" Text="Check-out:" FontFamily="RubikWetPaint" Margin="10,0,0,3" />
                         <Label Grid.Row="0" Grid.Column="2" Text="Estadia:" FontFamily="RubikWetPaint"  Margin="11,0,0,3" />
 
-                        <Label Grid.Row="1" Grid.Column="0" Text="27/05/2024" TextColor="Red" FontAttributes = "Bold" Margin="8,0,0,0"  />
-                        <Label Grid.Row="1" Grid.Column="1" Text="30/05/2024" TextColor="Red" FontAttributes = "Bold" Margin="13,0,0,0"/>
-                        <Label Grid.Row="1" Grid.Column="2" Text="3" TextColor="Red" FontAttributes = "Bold" Margin="33,0,0,0" />
-            </Grid>
-        </Frame>
+                        <Label Grid.Row="1" Grid.Column="0" Text="{Binding DataCheckin, StringFormat='{}{0:dd/MM/yyyy}'}" 
+                               TextColor="Red" FontAttributes = "Bold" Margin="8,0,0,0"  />
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding DataCheckOut, StringFormat='{}{0:dd/MM/yyyy}'}" 
+                               TextColor="Red" FontAttributes = "Bold" Margin="13,0,0,0"/>
+                        <Label Grid.Row="1" Grid.Column="2" Text="{Binding Estadia}" 
+                               TextColor="Red" FontAttributes = "Bold" Margin="33,0,0,0" />
+                    </Grid>
+                </Frame>
 
-        <Frame Margin="10">
-            <HorizontalStackLayout>
-                <Label Text="Valor Total:" Margin="55,0,10,0"
+                <Frame Margin="10">
+                    <HorizontalStackLayout>
+                        <Label Text="Valor Total:" Margin="55,0,10,0"
                        FontFamily="RubikWetPaint"/>
-                <Label Text=" R$ 750,00"  FontFamily="RubikWetPaint"
+                        <Label Text="{Binding ValorTotal, StringFormat='{}{0:c}'} "  FontFamily="RubikWetPaint"
                        TextColor="Red"/>
-            </HorizontalStackLayout>
-            
+                    </HorizontalStackLayout>
+
+                </Frame>
+
+            </VerticalStackLayout>
+
         </Frame>
-                
-    </VerticalStackLayout>
-            
-    </Frame>
 
         <Button Text="Voltar" 
                 
@@ -82,15 +92,7 @@
                 TextColor="White"
                 BackgroundColor="red"/>
 
-
-
-
-
-
-
-    
-
     </VerticalStackLayout>
-    
+
 
 </ContentPage>
